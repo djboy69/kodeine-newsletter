@@ -1,18 +1,18 @@
 <html>
-	<head>
-        <style type="text/css">
-        	body {
-        		background: #fff;
-        		color:#222222;
-            	font-family:"Lucida Grande","Lucida Sans Unicode", Verdana, sans-serif;
-			}
-			.h1, .h2, .h3 { font-weight: bold; }
-			.h1 {
-			    font-size: 18px;
-			    margin: 5px 0;
-			    color: #ff5599;
-			}
-    	</style>
+<head>
+    <style type="text/css">
+        body {
+            background: #fff;
+            color:#222222;
+            font-family:"Lucida Grande","Lucida Sans Unicode", Verdana, sans-serif;
+        }
+        .h1, .h2, .h3 { font-weight: bold; }
+        .h1 {
+            font-size: 18px;
+            margin: 5px 0;
+            color: #ff5599;
+        }
+    </style>
 </head>
 <body leftmargin="0" marginwidth="0" topmargin="0" marginheight="0" offset="0"  style="background: #fff;text-align:center;">
 
@@ -32,6 +32,81 @@
             </repeaters>
 		</td>
 	</tr>
+    <tr>
+        <td>
+            <repeaters data-ref="actus" data-name="Actualité" data-multiple="1" data-external="/newsletter/get-actus">
+                <repeater data-type="content" data-ref="actus" data-name="Actualité">
+                    <layout data-ref="actus" data-id_type="75" data-name="Standard">
+                        <table border="0" width="600" >
+                            <tr>
+                                <td colspan="2">
+                                    <hr />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="100">
+                                    <item data-fieldKey="contentMedia" data-url="/newsletter/get-actuphoto" data-ref="actudate" data-name="Date actualité" data-type="multiline" data-richtext="1">Image</item>
+                                </td>
+                                <td>
+                                    <p style="font-size: 0.8em;color:#999;">
+                                        <item data-fieldKey="field.dateActu" data-url="/newsletter/get-actudate" data-ref="actudate" data-name="Date actualité" data-type="singleline">Date</item>
+                                        <br />
+                                        <i>
+                                            Modifiée le <item data-fieldKey="contentDateUpdate" data-ref="actudateupdate" data-name="Date modification" data-type="singleline">Date modif</item>
+                                        </i>
+                                    </p>
+
+                                    <h3>
+                                        <item data-fieldKey="field.titreActu" data-ref="titre" data-name="Titre actualité" data-type="multiline" data-richtext="1">
+                                            Titre de l'actualité
+                                        </item>
+                                    </h3>
+
+                                    <div style="font-size: 0.8em;color: #333;">
+                                        <item data-fieldKey="field.texteActu" data-ref="texte" data-name="Texte actualité" data-type="multiline" data-richtext="1">
+                                            Texte de l'actualité...
+                                        </item>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </layout>
+                </repeater>
+            </repeaters>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h3>Autres contenus</h3>
+        </td>
+    </tr>
+    <tr>
+        <td>
+        <repeaters data-ref="autre" data-name="Autres" data-multiple="1">
+            <repeater data-ref="autre" data-name="Autres">
+                <layout data-ref="autre" data-name="Standard">
+                    <table border="0"  width="600">
+                        <tr>
+                            <td>
+                                <div>
+                                    <item data-ref="date" data-name="Date" data-type="singleline">Date</item>
+                                </div>
+                                <h3>
+                                    <item data-ref="intitule" data-name="Intitulé" data-type="multiline" data-richtext="1">Titre</item>
+                                </h3>
+                                <div style="font-size: 0.8em;color: #333;">
+                                    <item data-ref="texte" data-name="Descriptif" data-type="multiline" data-richtext="1">
+                                        Petit texte...
+                                    </item>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </layout>
+            </repeater>
+        </repeaters>
+    </td>
+    </tr>
 	</table>
 
 </body>
